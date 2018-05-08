@@ -1,0 +1,33 @@
+Nume: Florin-Ion Smeu
+Grupa: 322CD
+Email: florin.ion.smeu@gmail.com
+
+
+
+			        ======================================
+		  	           Protocoale de Comunicatie
+	  			                . TEMA 2 .
+			        Sistem monetar de tip Internet Banking
+			        ======================================
+
+
+
+	Pentru realizarea temei am optat pentru limbajul C. In cadrul acesteia am
+implementat o aplicatie de tip client-server care permite efectuarea de
+operatiuni bancare. 
+	Protocoalele de nivel aplicatie utilizate au fost UDP si TCP. Atat in
+cadrul clientului, cat si al serverului, am avut nevoie de multiplexare 
+pentru a putea primi informatii de la mai multe socket-uri. Clientul necesita 
+apelul functiei select pentru a se inchide atunci cand si serverul s-a inchis, 
+iar cel din urma necesita multiplexare pentru a putea comunica mai multor 
+clienti. 
+	Operatiile implementate au fost: login, logout, listsold, transfer, unlock
+si quit - pentru client si, de asemenea, quit - pentru server. Pentru operatia
+unlock comezile se trimit de la clienti catre server utilizand conexiunea UDP
+creata anterior. Toate celelalte comenzi vor fi comunicata pe conexiunea TCP 
+intre clienti si server.
+	In cazul in care apar erori de natura sa nu permita realizarea operatiilor,
+acestea vor fi semnalate de catre server clientilor.
+	Rezultatele tuturor comenzilor sunt afisate atat la stdout, cat si 
+intr-un fisier denumit "client-<id>.log", unde <id> este id-ul procesului prin
+care a fost lansat clientul curent. 
