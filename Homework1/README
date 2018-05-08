@@ -1,0 +1,39 @@
+Nume: FLORIN-ION SMEU
+Grupa: 322CD
+
+	
+			   =========================	
+			   Protocoale de Comunicatie	
+				  .  TEMA1  . 
+				  Mini-Kermit
+			   =========================
+
+
+	
+	In cadrul acestei teme am implementat o versiune simplificata a 
+protocolului Kermit.
+	In prima faza, senderul si receiverul stabilesc setarile conexiunii. 
+Acest lucru e realizat in cadrul pachetului SEND-INIT ('S'). Receiverul 
+verifica daca pachetul a fost corupt, trimitand un mesaj ACK sau NAK dupa caz.
+De asemenea, in cazul in care pachetul initial nu este primit, se asteapta de 
+maxim 3 ori timpul TIME, iar daca nici la finalul acestei perioade nu se 
+primeste niciun mesaj, conexiunea este intrerupta de catre receiver.
+	Urmeaza apoi ca senderul sa trimita, pe rand, fisierele ale caror nume
+le primeste ca argumente. Initial se trimite un mesaj de tip FILE HEADER, care
+contine numele fisierului de trimis. Urmeaza apoi ca datele efective sa fie 
+trimise de catre sender. Receiverul verifica in orice moment integritatea 
+datelor primite, calculand CRC. Sunt detectate astfel erorile de transmisie si
+un mesaj de tip NAK este trimis inapoi catre sender.
+	Dupa ce toate datele dintr-un fisier sunt receptionate corect de catre
+receiver, senderul ii va trimite un pachet de tip EOF. Receiverului i se aduce 
+astfel la cunostinta faptul ca fisierul curent a fost transmis complet si ca 
+poate sa-l inchida pe cel in care a scris datele primite.
+	In final, senderul mai trimite un pachet de tipul EOT catre receiver 
+prin care il anunta faptul ca a incheiat transmiterea de pachete. 
+   
+====
+
+Utilizare:
+	make build - compliare sursa sender si receiver
+	make clean - stergere fisiere executabile si fisiere create de 
+		     receiver (contin datele primite de la sender)	 
