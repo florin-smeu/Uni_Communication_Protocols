@@ -3,11 +3,11 @@ Email: florin_ion.smeu@gmail.com
 Group: 322CD
 Date: The 23rd of May 2018
 	
-					  	   =========================
-						   Protocoale de Comunicatie
-							   . 3rd HOMEWORK .
-						   	  	  DNS Client
-						   =========================
+			    =======================
+			    Communication Protocols
+				 . 3rd HOMEWORK .
+				    DNS Client
+			    =======================
 	
 	
 	What is this? 
@@ -55,6 +55,6 @@ an ip address, and the second argument the type of query. Note that for a
 reverse look-up (first argument an IP address), the second argument must always
 be PTR.
 	E.g. ./dnsclient www.google.com A
-		 ./dnsclient yahoo.com MX
-		 ./dnsclient 216.98.12.13 PTR
+	     ./dnsclient yahoo.com MX
+	     ./dnsclient 216.98.12.13 PTR
 										
