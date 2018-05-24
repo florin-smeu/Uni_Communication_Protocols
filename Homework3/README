@@ -1,0 +1,60 @@
+Name: Florin-Ion Smeu
+Email: florin_ion.smeu@gmail.com
+Group: 322CD
+Date: The 23rd of May 2018
+	
+					  	   =========================
+						   Protocoale de Comunicatie
+							   . 3rd HOMEWORK .
+						   	  	  DNS Client
+						   =========================
+	
+	
+	What is this? 
+	-------------
+	In this homework I implemented a DNS Client using the C language, based on 
+the specifications of the RFC 1035. Serveral types of queries can be performed 
+(A, MX, NS, CNAME, SOA, TXT and PTR). 
+	The answers received from the servers are logged in a file named "dns.log". 
+The content of this file imitates the output of the command "host -v -t type 
+name". Also, the messages sent to the DNS servers are logged in a file named 
+"message.log" (hexadecimal).
+
+	How it works?
+	-------------
+	The transport protocol utilized is UDP and the port is 53 (decimal).
+	The DNS servers' addresses are retrieved from a file named 
+"dns_servers.conf" found in the same directory as the source code. 
+Comment lines start with "#" and are ignored. If a server does not answer the 
+query that has just been sent to it, then the next server is interrogated and 
+so on, until the last server found in the configuration file.
+	The DNS query transmitted via UDP consists of a header and a question 
+section. The header's size is constant. The header contains, in short, 
+information about the id of the query, whether it is a query or an answer, 
+and how many queries are performed.
+	The question section contains the domain name whose IP address is searched
+(or the IP address whose domain name will be searched), and the type and class
+of the query.
+	After a DNS server has answered the query, it will be processed and 
+relevant information written to the dns.log file. An answer consists of a 
+header, a question, and zero or more resource records in the following 
+sections: answer, authority and  additional. Also, it is very important to 
+mention that data compression is used (see section 4.1.4 of RFC 1035). 
+	What the program does is to retrieve the information found in all the 
+resource records according to the RFC 1035. 
+
+	How to use?	
+	-----------
+	A makefile that contains the following rules has been created:
+		+ build - compiles the source code;
+		+ run - runs the executable (arguments are www.google.com and A)
+		+ clean - deletes the executable and the dns.log and message.log files;
+	
+	To run the executable, the first argument will be the domain name or 
+an ip address, and the second argument the type of query. Note that for a 
+reverse look-up (first argument an IP address), the second argument must always
+be PTR.
+	E.g. ./dnsclient www.google.com A
+		 ./dnsclient yahoo.com MX
+		 ./dnsclient 216.98.12.13 PTR
+										

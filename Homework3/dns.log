@@ -1,0 +1,28 @@
+Trying "www.google.com" [A]
+;; ->>HEADER<<- id: 15026
+;; QUERY: 1, ANSWER: 1, AUTHORITY 4, ADDITIONAL: 8
+
+;; QUESTION SECTION:
+www.google.com. IN A
+
+;; ANSWER SECTION:
+www.google.com. IN A 216.58.209.196
+
+;; AUTHORITY SECTION:
+google.com. IN NS ns2.google.com.
+google.com. IN NS ns4.google.com.
+google.com. IN NS ns3.google.com.
+google.com. IN NS ns1.google.com.
+
+;; ADDITIONAL SECTION:
+ns1.google.com. IN A 216.239.32.10
+ns1.google.com. IN UNKNOWN
+ns2.google.com. IN A 216.239.34.10
+ns2.google.com. IN UNKNOWN
+ns3.google.com. IN A 216.239.36.10
+ns3.google.com. IN UNKNOWN
+ns4.google.com. IN A 216.239.38.10
+ns4.google.com. IN UNKNOWN
+
+Received 296 bytes from 141.85.128.1#53 in 0.428 ms
+
